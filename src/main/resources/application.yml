@@ -1,0 +1,14 @@
+server:
+  port: 9123
+spring:
+  application:
+    name: demo
+feign:
+  client:
+    config:
+      default:
+        logger-level: basic
+  httpclient:
+    enabled: true
+    max-connections: 200
+    max-connections-per-route: 50
