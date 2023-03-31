@@ -2,7 +2,9 @@ package com.example.demoscript;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.demoscript.client.WebApiClient;
+import com.google.common.hash.BloomFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -23,6 +25,9 @@ import java.util.Map;
 @EnableFeignClients
 public class DemoScriptApplication {
 
+    @Autowired
+    @Qualifier("goodsIDBloom")
+    BloomFilter<String> goodsIDBloom;
     @Autowired
     private WebApiClient webApiClient;
     public static void main(String[] args) {
